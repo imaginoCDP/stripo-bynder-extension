@@ -5,8 +5,8 @@ const TAG_NAME_IMAGE = ".bynderImage";
 const TAG_NAME_VIDEO = ".bynderVideo";
 const TAG_NAME_VIDEO_LINK = ".bynderVideoLink";
 const TAG_NAME_VIDEO_LINK_IMAGE = ".bynderVideoLinkImage";
-const TAG_NAME_IMAGE_NOT_SUPPORTED = "bynderImageNotSupported";
-const TAG_NAME_IMAGE_LINK_NOT_SUPPORTED = "bynderImageLinkNotSupported";
+const TAG_NAME_IMAGE_NOT_SUPPORTED = ".bynderImageNotSupported";
+const TAG_NAME_IMAGE_LINK_NOT_SUPPORTED = ".bynderImageLinkNotSupported";
 
 const TAG_NAME_DEFAULT = ".bynderDefault";
 
@@ -59,8 +59,8 @@ export function openBynder(portalURL, token, block, locale) {
           block
             .find(TAG_NAME_VIDEO)
             .css("display", "inline")
-            .attr("src", previewUrls[0].url);
-          block.find(TAG_NAME_VIDEO_LINK).attr("href", previewUrls[0].url);
+            .attr("src", previewUrls[0]);
+          block.find(TAG_NAME_VIDEO_LINK).attr("href", previewUrls[0]);
           block
             .find(TAG_NAME_VIDEO_LINK_IMAGE)
             .attr("src", derivatives?.webImage);
