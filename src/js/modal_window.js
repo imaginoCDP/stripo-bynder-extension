@@ -1,19 +1,22 @@
-const TYPE_IMAGE = "IMAGE";
-const TYPE_VIDEO = "VIDEO";
+import {
+  IMAGE_FORMAT_EPS,
+  IMAGE_FORMAT_TIF,
+  TAG_NAME_DEFAULT,
+  TAG_NAME_IMAGE,
+  TAG_NAME_IMAGE_LINK_NOT_SUPPORTED,
+  TAG_NAME_IMAGE_NOT_SUPPORTED,
+  TAG_NAME_VIDEO,
+  TAG_NAME_VIDEO_LINK,
+  TAG_NAME_VIDEO_LINK_IMAGE,
+  TYPE_IMAGE,
+  TYPE_VIDEO,
+} from "./constants";
 
-const IMAGE_FORMAT_EPS = "eps";
-const IMAGE_FORMAT_TIF = "tif";
+/*
+ * Function call Bynder Universal Content Viewer in HTML editor
+ */
 
-const TAG_NAME_IMAGE = ".bynderImage";
-const TAG_NAME_VIDEO = ".bynderVideo";
-const TAG_NAME_VIDEO_LINK = ".bynderVideoLink";
-const TAG_NAME_VIDEO_LINK_IMAGE = ".bynderVideoLinkImage";
-const TAG_NAME_IMAGE_NOT_SUPPORTED = ".bynderImageNotSupported";
-const TAG_NAME_IMAGE_LINK_NOT_SUPPORTED = ".bynderImageLinkNotSupported";
-
-const TAG_NAME_DEFAULT = ".bynderDefault";
-
-export function openBynder(portalURL, token, block, locale) {
+export function openBynder({ portalURL, token, block, locale }) {
   window.BynderCompactView.open({
     language: locale,
     theme: {
@@ -30,6 +33,7 @@ export function openBynder(portalURL, token, block, locale) {
     },
     mode: "SingleSelectFile", // Only mono selection for now
     assetTypes: ["image", "video"], // Take off document type since no way to display it properly
+    // When selecting an asset, edit the HTML default layout and integrate the selected asset in it
     onSuccess: (assets, additionalInfo) => {
       const asset = assets?.[0];
       const { type, derivatives, previewUrls, extensions } = asset;
