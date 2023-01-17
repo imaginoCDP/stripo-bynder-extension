@@ -40,3 +40,14 @@
 .es-icon-header:before {
     content: '\eb0f';
 }
+
+
+.es-bynder {
+    display: block;
+    text-indent: -9999px;
+    width: 10px;
+    height: 10px;
+    background: url("../icons/bynder.svg");
+    background-size: 10px 10px;
+  }
+
