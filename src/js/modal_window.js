@@ -1,6 +1,9 @@
 const TYPE_IMAGE = "IMAGE";
 const TYPE_VIDEO = "VIDEO";
 
+const IMAGE_FORMAT_EPS = "eps";
+const IMAGE_FORMAT_TIF = "tif";
+
 const TAG_NAME_IMAGE = ".bynderImage";
 const TAG_NAME_VIDEO = ".bynderVideo";
 const TAG_NAME_VIDEO_LINK = ".bynderVideoLink";
@@ -36,7 +39,10 @@ export function openBynder(portalURL, token, block, locale) {
         case TYPE_IMAGE:
           // NOTE: images with .tif .eps extension might not work proprely
           // since most browsers does not support it
-          if (extensions.includes("eps") || extensions.includes("tif")) {
+          if (
+            extensions.includes(IMAGE_FORMAT_EPS) ||
+            extensions.includes(IMAGE_FORMAT_TIF)
+          ) {
             block.find(TAG_NAME_VIDEO).css("display", "none");
             block.find(TAG_NAME_IMAGE).css("display", "none");
             block.find(TAG_NAME_IMAGE_NOT_SUPPORTED).css("display", "inline");
