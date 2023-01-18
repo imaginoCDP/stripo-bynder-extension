@@ -1,15 +1,18 @@
-const paths = require('./paths')
-const merge = require('webpack-merge')
-const common = require('./webpack.common.js')
-const TerserJSPlugin = require('terser-webpack-plugin')
+const paths = require("./paths");
+const merge = require("webpack-merge");
+const common = require("./webpack.common.js");
+const TerserJSPlugin = require("terser-webpack-plugin");
+
+const PACKAGE = require("./package.json");
+const version = PACKAGE.version;
 
 module.exports = merge(common, {
-  mode: 'production',
+  mode: "production",
   devtool: false,
   output: {
     path: paths.build,
-    publicPath: '/',
-    filename: 'bynder.extension.js',
+    publicPath: "/",
+    filename: `bynder.extension.${version}.js`,
   },
 
   /**
@@ -19,5 +22,5 @@ module.exports = merge(common, {
    */
   optimization: {
     minimizer: [new TerserJSPlugin({})],
-  }
-})
+  },
+});
