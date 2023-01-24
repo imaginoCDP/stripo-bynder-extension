@@ -1,5 +1,6 @@
 import { createBynderBlockExtension } from "./createBynderBlockExtension";
 import { GLOBAL_EXTENSION_NAME } from "./constants";
+import stripoDefaultExtension from "./stripoDefaultExtension";
 
 const extension = {
   create(stripoConfig, stripoApi, extensionBasePath) {
@@ -7,6 +8,7 @@ const extension = {
       stripoConfig,
       stripoApi,
       extensionBasePath,
+      ...stripoDefaultExtension,
       ...createBynderBlockExtension(stripoConfig, stripoApi),
     });
   },
