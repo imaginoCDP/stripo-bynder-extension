@@ -29,7 +29,7 @@ export function createBynderBlockExtension(stripoConfig, stripoApi) {
     canBeSavedToLibrary: true,
     i18n: translations,
     blockName: "block.name",
-    blockType: "block",
+    blockType: "structure",
     disableSettingsPanel: true,
     isEnabled: () => hasCredentials, // Disable bynder block if no credentials
     getBlockLayoutToDrop,
