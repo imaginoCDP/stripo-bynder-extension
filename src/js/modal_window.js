@@ -16,7 +16,7 @@ import {
  * Function call Bynder Universal Content Viewer in HTML editor
  */
 
-export function openBynder({ portalURL, token, block, locale }) {
+export function openBynder({ portalURL, stripoApi, token, block, locale }) {
   window.BynderCompactView.open({
     language: locale,
     theme: {
@@ -76,6 +76,7 @@ export function openBynder({ portalURL, token, block, locale }) {
             .attr("src", derivatives?.webImage);
           break;
       }
+      stripoApi.resetElementSelection();
     },
   });
 }

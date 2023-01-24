@@ -18,7 +18,7 @@ export function createBynderBlockExtension(stripoConfig, stripoApi) {
 
   function onSelectBlock(block, context) {
     if (!context.showCustomBlockSettings) {
-      openBynder({ portalURL, token, block, locale });
+      openBynder({ portalURL, stripoApi, token, block, locale });
     }
   }
 
@@ -29,7 +29,7 @@ export function createBynderBlockExtension(stripoConfig, stripoApi) {
     canBeSavedToLibrary: true,
     i18n: translations,
     blockName: "block.name",
-    blockType: "structure",
+    blockType: "block",
     disableSettingsPanel: true,
     isEnabled: () => hasCredentials, // Disable bynder block if no credentials
     getBlockLayoutToDrop,
